@@ -5,18 +5,34 @@ class Pangram {
     this.letterSet;
   }
 
-  isPangram() {
-    if (!this.sentence) return false;
-    if (this.sentence.match(/[a-z]/gi) === false) {
-      return false;
-    }
-
-    this.arrSentence = this.sentence.replace(/ /g, "").split("");
+  stripPangram() {
+    this.sentence = this.sentence.replace(/\s/gi, "").toLowerCase();
+    this.arrSentence = this.sentence.split("");
     this.letterSet = new Set(this.arrSentence);
-    if (this.letterSet.size === 26) {
-      return true;
-    } else {
+  }
+
+  checkSetSize() {
+    this.stripPangram();
+    return this.letterSet.size === 26;
+  }
+
+  isPangram() {
+    if (this.sentence === "") {
       return false;
+    } else if (/\d/gi.test(this.sentence)) {
+      this.sentence = this.sentence.replace(/\d/g, "");
+      return this.checkSetSize();
+    } else if (/_/g.test(this.sentence)) {
+      this.sentence = this.sentence.replace(/_/g, "");
+      return this.checkSetSize();
+    } else if (!/a-zA-Z/gi.test(this.sentence)) {
+      this.sentence = this.sentence.replace(
+        /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/g,
+        ""
+      );
+      return this.checkSetSize();
+    } else {
+      return this.checkSetSize();
     }
   }
 }
