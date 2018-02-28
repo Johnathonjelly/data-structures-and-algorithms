@@ -1,6 +1,6 @@
 class Pangram {
   constructor(sentence) {
-    this.sentence = sentence;
+    this.sentence = sentence.toLowerCase().replace(/[^a-z]/g, "");
     this.arrSentence = [];
     this.letterSet;
   }
