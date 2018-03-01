@@ -17,7 +17,7 @@ function maxChar(str) {
 }
 
 module.exports = maxChar;
-
+// could I refactor this further? Yes, I could. However, I believe in keeping the code as readable as possible. Refactoring further might introduce unneeded compleity.
 // for (let char of str) {
 //     //     if (charMap[char] != null) {
 //     //       charMap[char] += 1;
