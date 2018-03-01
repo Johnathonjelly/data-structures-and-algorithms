@@ -8,6 +8,61 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {}
+function cleanSentence(sentence) {
+  sentence.toLowerCase().replace("/[^a-zA-Z]/g", "");
+  sentence.split("");
+  let cleaned = new Set(sentence);
+  const nonABC = [
+    ",",
+    ".",
+    "?",
+    "!",
+    "@",
+    "#",
+    "$",
+    "%",
+    "^",
+    "&",
+    "*",
+    "(",
+    ")",
+    "-",
+    "_",
+    "+",
+    "=",
+    ":",
+    ";",
+    "[",
+    "]",
+    "{",
+    "}",
+    "|",
+    "/",
+    "\\",
+    "'",
+    " "
+  ];
+
+  for (let element of nonABC) {
+    if (cleaned.has(element)) {
+      cleaned.delete(element);
+    }
+  }
+  return cleaned;
+}
+
+function anagrams(stringA, stringB) {
+  let setA = cleanSentence(stringA);
+  let setB = cleanSentence(stringB);
+
+  if (setA.size != setB.size) return false;
+
+  const iteratorA = setA.entries();
+  for (let values of iteratorA) {
+    if (setB.has(values) === iteratorA) {
+      return true;
+    }
+  }
+}
 
 module.exports = anagrams;

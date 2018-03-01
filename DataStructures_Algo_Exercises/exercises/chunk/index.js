@@ -38,7 +38,6 @@ function chunk(array, size) {
   for (let i = 0; i < array.length; i += size) {
     chunkArr.push(array.slice(i, size + i));
   }
-
   return chunkArr;
 }
 
