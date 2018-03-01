@@ -31,5 +31,6 @@ function palindrome(str) {
 //     .join("");
 //   return revStr === str ? true : false;
 // }
+// complete
 
 module.exports = palindrome;
