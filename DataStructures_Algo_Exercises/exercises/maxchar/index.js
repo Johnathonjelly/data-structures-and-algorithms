@@ -8,15 +8,19 @@
 function maxChar(str) {
   const charMap = {};
   for (let char of str) {
-    if (charMap[char] != null) {
-      charMap[char] += 1;
-    } else {
-      charMap[char] = 1;
-    }
+    charMap[char] != null ? (charMap[char] += 1) : (charMap[char] = 1);
   }
+
   return Object.keys(charMap).reduce(
     (a, b) => (charMap[a] > charMap[b] ? a : b)
   );
 }
 
 module.exports = maxChar;
+
+// for (let char of str) {
+//     //     if (charMap[char] != null) {
+//     //       charMap[char] += 1;
+//     //     } else {
+//     //       charMap[char] = 1;
+//     //     }
