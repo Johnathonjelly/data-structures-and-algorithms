@@ -59,7 +59,7 @@ function anagrams(stringA, stringB) {
 
   const iteratorA = setA.entries();
   for (let values of iteratorA) {
-    if (setB.has(values) === iteratorA) {
+    if (setB.has(values) === setA.has(values)) {
       return true;
     }
   }
