@@ -10,13 +10,13 @@ class Bob {
 
   hey(message) {
     switch (true) {
-      case this.isShouting(message): {
+      case this.isShoutingHandler(message): {
         return this.response.get("shouting");
       }
-      case this.isSilent(message): {
+      case this.isSilentHandler(message): {
         return this.response.get("slient");
       }
-      case this.isQuestion(message): {
+      case this.isQuestionHandler(message): {
         return this.response.get("question");
       }
       default: {
@@ -25,17 +25,17 @@ class Bob {
     }
   }
 
-  isShouting(message) {
+  isShoutingHandler(message) {
     return (
       message === message.toUpperCase() && message !== message.toLowerCase()
     );
   }
 
-  isSilent(message) {
+  isSilentHandler(message) {
     return !message.trim().length;
   }
 
-  isQuestion(message) {
+  isQuestionHandler(message) {
     return message.length - 1 === message.endsWith("?");
   }
 }
