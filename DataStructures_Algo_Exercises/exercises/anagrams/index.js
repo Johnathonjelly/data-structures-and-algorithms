@@ -71,14 +71,8 @@ function anagrams(stringA, stringB) {
 //   return string.replace(/[^\w]/g, "").toLowerCase().split('').sort().join();
 // }
 
-// function anagrams(stringA, stringB) {
-//   if (clean(stringA) === clean(stringB)) {
-//     return true;
-//   } else {
-//     console.log(clean(stringA), clean(stringB))
-//     return false;
-//   }
-
-// }
+function anagrams(stringA, stringB) {
+  clean(stringA) === clean(stringB);
+}
 
 module.exports = anagrams;
