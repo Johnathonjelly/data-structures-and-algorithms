@@ -9,7 +9,8 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function cleanSentence(sentence) {
-  sentence.toLowerCase().replace("/[^a-zA-Z]/g", "");
+  // sentence.toLowerCase().replace(/[^a-zA-Z]/g, "");
+  // sentence.toLowerCase().replace(/[^w]/g, "");
   sentence.split("");
   let cleaned = new Set(sentence);
   const nonABC = [
@@ -64,5 +65,20 @@ function anagrams(stringA, stringB) {
     }
   }
 }
+
+// -- quicker method, not as obvious to arrive here logically though
+// function clean(string) {
+//   return string.replace(/[^\w]/g, "").toLowerCase().split('').sort().join();
+// }
+
+// function anagrams(stringA, stringB) {
+//   if (clean(stringA) === clean(stringB)) {
+//     return true;
+//   } else {
+//     console.log(clean(stringA), clean(stringB))
+//     return false;
+//   }
+
+// }
 
 module.exports = anagrams;
