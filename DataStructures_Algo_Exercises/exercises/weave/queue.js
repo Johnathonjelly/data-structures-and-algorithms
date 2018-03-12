@@ -18,8 +18,7 @@ class Queue {
   }
 
   peek() {
-    let lastElem = this.data.length - 1;
-    return this.data[lastElem];
+    return this.data[this.data.length - 1];
   }
 }
 

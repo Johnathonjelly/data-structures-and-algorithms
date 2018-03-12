@@ -24,6 +24,23 @@
 
 const Queue = require("./queue");
 
+// function weave(sourceOne, sourceTwo) {
+//   const que = new Queue();
+//   const largestQue =
+//     sourceOne.data.length > sourceTwo.data.length
+//       ? sourceOne.data.length
+//       : sourceTwo.data.length;
+//   for (let i = largestQue; i >= 0; i--) {
+//     if (sourceOne.data[i] != undefined) {
+//       que.add(sourceOne.data[i]);
+//     }
+//     if (sourceTwo.data[i] != undefined) {
+//       que.add(sourceTwo.data[i]);
+//     }
+//   }
+//   return que;
+// }
+
 function weave(sourceOne, sourceTwo) {
   const que = new Queue();
   const largestQue =
@@ -31,11 +48,11 @@ function weave(sourceOne, sourceTwo) {
       ? sourceOne.data.length
       : sourceTwo.data.length;
   for (let i = largestQue; i >= 0; i--) {
-    if (sourceOne.data[i] != undefined) {
-      que.add(sourceOne.data[i]);
+    if (sourceOne.peek() !== undefined) {
+      que.add(sourceOne.remove());
     }
-    if (sourceTwo.data[i] != undefined) {
-      que.add(sourceTwo.data[i]);
+    if (sourceTwo.peek() !== undefined) {
+      que.add(sourceTwo.remove());
     }
   }
   return que;
